@@ -2137,7 +2137,7 @@ class Ion_auth_model extends CI_Model
 	 * @return bool
 	 * @author aditya menon
 	 */
-	public function update_group($group_id = FALSE, $group_name = FALSE, $additional_data = [])
+	public function update_group($group_id = FALSE, $group_name = FALSE, $group_description = '', $additional_data = [])
 	{
 		if (empty($group_id))
 		{
@@ -2158,7 +2158,7 @@ class Ion_auth_model extends CI_Model
 				return FALSE;
 			}
 
-			$data['name'] = $group_name;
+			$data = ['name' => $group_name, 'description' => $group_description];
 		}
 
 		// restrict change of name of the admin group
